@@ -25,7 +25,7 @@ buttons[1].addEventListener("mouseover", () => {
 buttons[2].addEventListener("dblclick", () => {
   buttons[2].style.color = "green";
 });
-// top pic zoom
+// top pic zoom for wheel
 function zoom(event) {
   event.preventDefault();
 
@@ -73,11 +73,31 @@ el.onwheel = zoom;
 // );
 const form = document.getElementById("form");
 
+form.addEventListener("focus", event => {
+  event.target.style.background = "yellow";
+});
 form.addEventListener(
   "blur",
   event => {
-    event.target.style.background = "";
+    event.target.style.background = "yellow";
   },
   true
 );
 // blur only works if its password locked on a form and placeholder tag
+
+window.addEventListener("scroll", () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+  if (Math.ceil(scrolled) === scrollable) {
+    alert("end of the page");
+  }
+});
+
+window.addEventListener("load", event => {
+  alert("page is fully loaded");
+});
+document.addEventListener("keypress", sound);
+
+function sound(soundplay) {
+  alert("you clicked a keypress");
+}
