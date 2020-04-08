@@ -101,3 +101,17 @@ document.addEventListener("keypress", sound);
 function sound(soundplay) {
   alert("you clicked a keypress");
 }
+// wanted to do sound on a key press but ran out of time
+
+const video = document.querySelector("nav");
+
+video.addEventListener("copy", event => {
+  let play = new Audio("img/boop.mp3");
+  play.play();
+});
+// const video = document.querySelector("video");
+
+// video.onplay = event => {
+//   let play = new
+//   play.video();
+// };
